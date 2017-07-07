@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>cl.inacap.percadi.controller.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogOutController</servlet-name>
+        <servlet-class>cl.inacap.percadi.controller.LogOutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MostrarCurriculum</servlet-name>
+        <servlet-class>cl.inacap.percadi.controller.MostrarCurriculum</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CurriculumController</servlet-name>
+        <servlet-class>cl.inacap.percadi.controller.CurriculumController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogOutController</servlet-name>
+        <url-pattern>/LogOutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MostrarCurriculum</servlet-name>
+        <url-pattern>/MostrarCurriculum</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CurriculumController</servlet-name>
+        <url-pattern>/CurriculumController</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
