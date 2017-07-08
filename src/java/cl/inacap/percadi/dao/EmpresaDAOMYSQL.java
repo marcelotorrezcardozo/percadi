@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -52,6 +53,11 @@ public class EmpresaDAOMYSQL implements EmpresaDAO {
         em.close();
 
         return null;
+    }
+
+    @Override
+    public void logOut(HttpServletRequest request) {
+        request.getSession().invalidate();
     }
 
 }

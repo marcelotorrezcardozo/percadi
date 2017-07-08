@@ -6,6 +6,7 @@
 package cl.inacap.percadi.dao;
 
 import cl.inacap.percadi.model.Empresa;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -16,4 +17,5 @@ public interface EmpresaDAO {
     public Empresa Register(String nombre, String email, String contraseña, String rut,
              String razonsocial, String telefono, String nombrecontacto);
     public Empresa Login(String correo,String password);
+    public void logOut(HttpServletRequest request);
 }

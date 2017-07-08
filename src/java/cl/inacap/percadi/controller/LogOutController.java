@@ -5,6 +5,8 @@
  */
 package cl.inacap.percadi.controller;
 
+import cl.inacap.percadi.dao.EmpresaDAO;
+import cl.inacap.percadi.dao.EmpresaDAOMYSQL;
 import cl.inacap.percadi.dao.UsuarioDAO;
 import cl.inacap.percadi.dao.UsuarioDAOMYSQL;
 import java.io.IOException;
@@ -32,11 +34,20 @@ public class LogOutController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        UsuarioDAO udao = new UsuarioDAOMYSQL();
-        udao.logOut(request);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
-        
+
+        if (request.getSession().getAttribute("usuario") != null) {
+            UsuarioDAO udao = new UsuarioDAOMYSQL();
+            udao.logOut(request);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        } else {
+            if (request.getSession().getAttribute("empresa") != null) {
+                EmpresaDAO edao = new EmpresaDAOMYSQL();
+                edao.logOut(request);
+                System.out.println("empresa");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
