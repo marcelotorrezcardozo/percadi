@@ -294,7 +294,7 @@
                                                 <div class="row">
                                                   <div class="col-lg-6">
                                                     <h3 class="text-center">Registrar mi empresa</h3>
-                                                    <form action="#" method="post">
+                                                    <form action="LoginController" method="post">
                                                       <div class="row">
                                                         <div class="col-lg-6">
                                                           <div class="form-group">
@@ -304,7 +304,7 @@
                                                           <div class="col-lg-6">
                                                             <div class="form-group">
                                                               <label for="">Contraseña</label>
-                                                              <input type="text" class="form-control" id="" placeholder="" name="txtContraseñaEmpresa"></div>
+                                                              <input type="text" class="form-control" id="" placeholder="" name="txtPasswordEmpresa"></div>
                                                             </div>
                                                           </div>
                                                           <div class="row">

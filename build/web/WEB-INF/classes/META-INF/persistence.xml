@@ -8,6 +8,7 @@
     <class>cl.inacap.percadi.model.Ciudad</class>
     <class>cl.inacap.percadi.model.AntecedenteLaboral</class>
     <class>cl.inacap.percadi.model.TipoEstudio</class>
+    <class>cl.inacap.percadi.model.Empresa</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/percadi"/>

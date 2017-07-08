@@ -65,17 +65,17 @@ public class LoginController extends HttpServlet {
             case "registerempresa":
                 String txtNombreEmpresa = request.getParameter("txtNombreEmpresa");
                 String txtEmailEmpresa = request.getParameter("txtEmailEmpresa");
-                String txtContraseñaEmpresa = request.getParameter("txtContraseñaEmpresa");
+                String txtPasswordEmpresa = request.getParameter("txtPasswordEmpresa");
                 String txtRutEmpresa = request.getParameter("txtRutEmpresa");
                 String txtRazonSocialEmpresa = request.getParameter("txtRazonSocialEmpresa");
                 String txtTelefonoEmpresa = request.getParameter("txtTelefonoEmpresa");
                 String txtNombreContactoEmpresa = request.getParameter("txtNombreContactoEmpresa");
 
                 EmpresaDAO edao = new EmpresaDAOMYSQL();
-                Empresa empresa = edao.Register(txtNombreEmpresa, txtEmailEmpresa, txtContraseñaEmpresa, txtRutEmpresa,
+                Empresa empresa = edao.Register(txtNombreEmpresa, txtEmailEmpresa, txtPasswordEmpresa, txtRutEmpresa,
                         txtRazonSocialEmpresa, txtTelefonoEmpresa, txtNombreContactoEmpresa);
                 request.getSession().setAttribute("empresa", empresa);
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("perfilempresa.jsp").forward(request, response);
                 break;
         }
     }

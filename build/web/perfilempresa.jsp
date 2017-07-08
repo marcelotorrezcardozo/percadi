@@ -4,6 +4,8 @@
     Author     : alvaro
 --%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -52,15 +54,19 @@
                       </form>
                     </div>
                   </div>
-                  <div class="row">
 
+                   <div class="row">
                     <div class="container">
+                      <h3>Avisos disponibles</h3>
                       <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
-                            <th>Email</th>
+                            <th>Titulo</th>
+                            <th>Estado</th>
+                            <th>FinalizaciÃ³n</th>
+                            <th>Ãrea</th>
+                            <th>CV Recibidos</th>
+                            <th>Tipo</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -68,16 +74,9 @@
                             <td>John</td>
                             <td>Doe</td>
                             <td>john@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>Mary</td>
-                            <td>Moe</td>
-                            <td>mary@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>July</td>
-                            <td>Dooley</td>
-                            <td>july@example.com</td>
+                            <td>hola</td>
+                            <td>hola</td>
+                            <td>hola</td>
                           </tr>
                         </tbody>
                       </table>
