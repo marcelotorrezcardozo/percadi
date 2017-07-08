@@ -77,6 +77,22 @@ public class LoginController extends HttpServlet {
                 request.getSession().setAttribute("empresa", empresa);
                 request.getRequestDispatcher("perfilempresa.jsp").forward(request, response);
                 break;
+            case "loginempresa":
+                String txtEmailEmpresaLogin = request.getParameter("txtEmailEmpresaLogin");
+                String txtPasswordEmpresaLogin = request.getParameter("txtPasswordEmpresaLogin");
+
+                EmpresaDAO edaol = new EmpresaDAOMYSQL();
+                Empresa empresalogin = edaol.Login(txtEmailEmpresaLogin, txtPasswordEmpresaLogin);
+
+                if (empresalogin != null) {
+
+                    request.getSession().setAttribute("empresa", empresalogin);
+                    request.getRequestDispatcher("perfilempresa.jsp").forward(request, response);
+                }else{
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                }
+
+                break;
         }
     }
 

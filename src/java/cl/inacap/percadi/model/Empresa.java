@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -20,6 +21,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "empresa")
+@NamedQuery(name = "Empresa.findByEmail",query = "select e from Empresa e where e.email=:email")
 public class Empresa implements Serializable{
     
     private static final long serialVersionUID = 1L;

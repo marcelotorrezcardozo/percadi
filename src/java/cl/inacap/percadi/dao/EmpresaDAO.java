@@ -15,5 +15,5 @@ public interface EmpresaDAO {
 
     public Empresa Register(String nombre, String email, String contraseña, String rut,
              String razonsocial, String telefono, String nombrecontacto);
-
+    public Empresa Login(String correo,String password);
 }
