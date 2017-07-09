@@ -47,6 +47,7 @@ public class CurriculumController extends HttpServlet {
 
         String txtTipoDiscapacidad = request.getParameter("txtDiscapacidad");
         String txtTelefono = request.getParameter("txtTelefono");
+        String txtEdad = request.getParameter("txtEdad");
         String txtProvincia = request.getParameter("txtProvincia");
         String txtCiudad = request.getParameter("txtCiudad");
         String txtTituloCarrera = request.getParameter("txtTituloCarrera");
@@ -57,27 +58,32 @@ public class CurriculumController extends HttpServlet {
         String txtNombreEmpresa = request.getParameter("txtNombreEmpresa");
         String txtPuesto = request.getParameter("txtPuesto");
         String txtNivelExperiencia = request.getParameter("txtNivelExperiencia");
-
+        String txtSexo = request.getParameter("txtSexo");
+        String txtSalario = request.getParameter("txtSalario");
+        
+        
+        char sexo = txtSexo.charAt(0);
         float promedionotas = Float.parseFloat(txtPromedioNotas);
         char estado = txtEstado.charAt(0);
+        int intedad = Integer.parseInt(txtEdad);
 
-        Curriculum curriculum = new Curriculum(txtTelefono, txtTituloCarrera, promedionotas, txtInstitucion);
+        Curriculum curriculum = new Curriculum(txtTelefono, intedad, txtTituloCarrera, promedionotas, txtInstitucion,sexo,txtSalario);
 
         int intciudad = Integer.parseInt(txtCiudad);
         int intdiscapacidad = Integer.parseInt(txtTipoDiscapacidad);
         int intprovincia = Integer.parseInt(txtProvincia);
 
         Ciudad c = em.find(Ciudad.class, intciudad);
-        Ciudad ciudad = new Ciudad(c.getId(),c.getNombre());
-        
+        Ciudad ciudad = new Ciudad(c.getId(), c.getNombre());
+
         Discapacidad d = em.find(Discapacidad.class, intdiscapacidad);
-        Discapacidad discapacidad = new Discapacidad(d.getId(),d.getNombre());
+        Discapacidad discapacidad = new Discapacidad(d.getId(), d.getNombre());
 
         Provincia p = em.find(Provincia.class, intprovincia);
-        Provincia provincia = new Provincia(p.getId(),p.getNombre());
+        Provincia provincia = new Provincia(p.getId(), p.getNombre());
 
         TipoEstudio tipoestudio = new TipoEstudio(txtTipoEstudio, estado);
-        
+
         AntecedenteLaboral antecedentelaboral = new AntecedenteLaboral(txtNombreEmpresa, txtPuesto, txtNivelExperiencia);
 
         CurriculumDAO cdao = new CurriculumDAOMYSQL();

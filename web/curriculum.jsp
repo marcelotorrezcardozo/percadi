@@ -112,6 +112,33 @@
                             <input type="text" class="form-control" id="telefono" placeholder="telefono" name="txtTelefono"></div>
                     </div>
                 </div>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label for="Edad">Edad</label>
+                      <input type="text" class="form-control" id="Edad" placeholder="" name="txtEdad">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label for="">Sexo</label>
+                      <label class="radio-inline">
+                          <input type="radio" name="txtSexo" value="m">Masculino</label>
+                      <label class="radio-inline">
+                          <input type="radio" name="txtSexo" value="f">Femenino</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label for="">Salario Estimado</label>
+                      <input type="text" class="form-control" id="" placeholder="" name="txtSalario">
+                    </div>
+                  </div>
+                </div>
                 <h3>Dirección</h3>
                 <div class="row">
                     <div class="col-lg-4">

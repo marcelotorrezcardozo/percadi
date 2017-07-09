@@ -11,6 +11,7 @@ import cl.inacap.percadi.model.Curriculum;
 import cl.inacap.percadi.model.Discapacidad;
 import cl.inacap.percadi.model.Provincia;
 import cl.inacap.percadi.model.TipoEstudio;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -19,8 +20,10 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface CurriculumDAO {
 
-    public void Persist(Curriculum curriculum , Ciudad ciudad , Discapacidad discapacidad, 
-            Provincia provincia, TipoEstudio tipoestudio ,AntecedenteLaboral antecedentelaboral,HttpServletRequest request);
-           
+    public void Persist(Curriculum curriculum, Ciudad ciudad, Discapacidad discapacidad,
+            Provincia provincia, TipoEstudio tipoestudio, AntecedenteLaboral antecedentelaboral, HttpServletRequest request);
+
+    
+    public List<Curriculum> findAll();
 
 }

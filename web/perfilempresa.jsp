@@ -28,7 +28,7 @@
                         <a href="#">Estadistica de cuenta</a>
                     </li>
                     <li>
-                        <a href="#">Buscar usuario</a>
+                        <a href="MostrarUsuario">Buscar usuario</a>
                     </li>
                     <li>
                         <a href="#">Publicar aviso</a>

@@ -15,6 +15,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -24,67 +26,78 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "curriculum")
+@NamedQueries({
+    @NamedQuery(name = "Curriculum.Filter", query = "SELECT c from Curriculum c WHERE c.edad =:edad AND c.sexo=:sexo AND c.provincia=:provincia AND c.ciudad=:ciudad AND c.discapacidad =:discapacidad "
+            + " "),
+    @NamedQuery(name = "Curriculum.findAll", query = "SELECT c from Curriculum c")})
 public class Curriculum implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
-    @Column(name = "cur_id",nullable = false)
+    @Column(name = "cur_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "cur_telefono")
     private String telefono;
-    
+
+    @Column(name = "cur_edad")
+    private int edad;
+
     @Column(name = "cur_titulocarrera")
     private String titulocarrera;
     
+    @Column(name = "cur_salario")
+    private String salario;
+
     @Column(name = "cur_promedio")
     private float promedio;
-    
+
     @Column(name = "cur_institucion")
     private String institucion;
-   
-    @JoinColumn(name = "usuario_usu_id",nullable = false)
+
+    @Column(name = "cur_sexo")
+    private char sexo;
+
+    @JoinColumn(name = "usuario_usu_id", nullable = false)
     @OneToOne(fetch = FetchType.LAZY)
     private Usuario usuario;
-    
-    @JoinColumn(name = "discapacidad_disc_id",nullable = false)
+
+    @JoinColumn(name = "discapacidad_disc_id", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private Discapacidad discapacidad;
-    
-    @JoinColumn(name = "provincia_prov_id",nullable = false)
+
+    @JoinColumn(name = "provincia_prov_id", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private Provincia provincia;
-    
-    @JoinColumn(name = "ciudad_ciu_id",nullable = false)
+
+    @JoinColumn(name = "ciudad_ciu_id", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private Ciudad ciudad;
-    
-    @JoinColumn(name = "tipoestudio_te_id",nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
-    private TipoEstudio tipoestudio;
-    
-    @JoinColumn(name = "antecedentelaboral_al_id",nullable = false)
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private AntecedenteLaboral antecedentelaboral;
-    
 
-    
+    @JoinColumn(name = "tipoestudio_te_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    private TipoEstudio tipoestudio;
+
+    @JoinColumn(name = "antecedentelaboral_al_id", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private AntecedenteLaboral antecedentelaboral;
+
     public Curriculum() {
         super();
     }
 
-    public Curriculum(String telefono, String titulocarrera, float promedio, String institucion) {
+    public Curriculum(String telefono, int edad, String titulocarrera, float promedio, String institucion, char sexo,String salario) {
         super();
         this.telefono = telefono;
+        this.edad = edad;
         this.titulocarrera = titulocarrera;
         this.promedio = promedio;
         this.institucion = institucion;
+        this.sexo = sexo;
+        this.salario = salario;
     }
-
-  
-
 
     public int getId() {
         return id;
@@ -102,6 +115,14 @@ public class Curriculum implements Serializable {
         this.telefono = telefono;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
     public String getTitulocarrera() {
         return titulocarrera;
     }
@@ -109,6 +130,24 @@ public class Curriculum implements Serializable {
     public void setTitulocarrera(String titulocarrera) {
         this.titulocarrera = titulocarrera;
     }
+
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getSalario() {
+        return salario;
+    }
+
+    public void setSalario(String salario) {
+        this.salario = salario;
+    }
+    
+    
 
     public float getPromedio() {
         return promedio;
@@ -158,8 +197,6 @@ public class Curriculum implements Serializable {
         this.tipoestudio = tipoestudio;
     }
 
- 
-
     public String getInstitucion() {
         return institucion;
     }
@@ -175,12 +212,6 @@ public class Curriculum implements Serializable {
     public void setAntecedentelaboral(AntecedenteLaboral antecedentelaboral) {
         this.antecedentelaboral = antecedentelaboral;
     }
-    
-    
-    
-    
-    
-    
 
     @Override
     public int hashCode() {
@@ -206,7 +237,5 @@ public class Curriculum implements Serializable {
         }
         return true;
     }
-    
-    
 
 }

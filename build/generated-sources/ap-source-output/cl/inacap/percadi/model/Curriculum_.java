@@ -19,6 +19,7 @@ public abstract class Curriculum_ {
 	public static volatile SingularAttribute<Curriculum, Integer> id;
 	public static volatile SingularAttribute<Curriculum, String> telefono;
 	public static volatile SingularAttribute<Curriculum, Provincia> provincia;
+	public static volatile SingularAttribute<Curriculum, Integer> edad;
 
 }
 
