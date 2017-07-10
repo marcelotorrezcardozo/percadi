@@ -52,7 +52,7 @@
                         <form action="#" method="post">
                             <div class="form-group">
                                 <label class="text-center"></label>
-                                <input type="text" class="form-control" id="" onkeyup="" placeholder="palabra clave"></div>
+                                <input type="text" class="form-control" id="input" onkeyup="find()" placeholder="palabra clave"></div>
                         </form>
                     </div>
                 </div>
@@ -111,44 +111,47 @@
                         </div>
                         <h4 class="text-center">Discapacidad</h4>
                         <div class="row">
-                          <div class="col-lg-4 col-lg-push-4">
-                            <div class="form-group">
-                                <label for="" class="text-center">tipo</label>
-                                <select class="form-control" name="">
-                                    <c:forEach items="${requestScope.discList}" var="list">
-                                        <option value="${list.id}">${list.nombre}</option>
-                                    </c:forEach>
-                                </select>
+                            <div class="col-lg-4 col-lg-push-4">
+                                <div class="form-group">
+                                    <label for="" class="text-center">tipo</label>
+                                    <select class="form-control" name="">
+                                        <c:forEach items="${requestScope.discList}" var="list">
+                                            <option value="${list.id}">${list.nombre}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
                             </div>
-                          </div>
                         </div>
                         <button type="submit" class="btn btn-default col-lg-12">Submit</button>
                     </form>
                 </div>
                 <div class="col-lg-9">
+
                     <!--tabla-->
                     <h2>Usuarios</h2>
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="tabla">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
+                                <th>Edad</th>
                                 <th>Correo</th>
                                 <th>Discapacidad</th>
                                 <th>Salario Estimado</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <c:forEach items="${requestScope.curlist}" var="list">
+                            <c:forEach items="${requestScope.curlist}" var="list">
+                                <tr>
                                     <td>${list.usuario.nombre}</td>
                                     <td>${list.usuario.apellido}</td>
+                                    <td>${list.edad}</td>
                                     <td>${list.usuario.correo}</td>
                                     <td>${list.discapacidad.nombre}</td>
                                     <td>${list.salario}</td>
-                                </c:forEach>
+                                </tr>
+                            </c:forEach>
 
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -161,6 +164,6 @@
         <script src="js/jquery-3.2.1.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/finduser.js"></script>
+        <script src="js/filter.js"></script>
     </body>
 </html>

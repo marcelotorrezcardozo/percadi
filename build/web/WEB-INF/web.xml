@@ -20,10 +20,6 @@
         <servlet-name>MostrarUsuario</servlet-name>
         <servlet-class>cl.inacap.percadi.controller.MostrarUsuario</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>MostrarUsuarioController</servlet-name>
-        <servlet-class>cl.inacap.percadi.controller.MostrarUsuarioController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -43,10 +39,6 @@
     <servlet-mapping>
         <servlet-name>MostrarUsuario</servlet-name>
         <url-pattern>/MostrarUsuario</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MostrarUsuarioController</servlet-name>
-        <url-pattern>/MostrarUsuarioController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
